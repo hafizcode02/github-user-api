@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Github Social</string>
+    <string name="find_username">Find Username</string>
+    <string name="hafiz_caniago"> Hafiz Caniago</string>
+    <string name="hafizcode02">\@ hafizcode02</string>
+    <string name="_100_repository">%s Repository</string>
+    <string name="followings">%s Following</string>
+    <string name="follower">%s Followers</string>
+</resources>
