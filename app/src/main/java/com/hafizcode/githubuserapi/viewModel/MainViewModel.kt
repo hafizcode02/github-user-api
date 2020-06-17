@@ -26,7 +26,7 @@ class MainViewModel : ViewModel() {
 
     fun getDataGit(context: Context) {
         val httpClient = AsyncHttpClient()
-        httpClient.addHeader("Authorization", "f49f4bf36e789f74efb91cc10f7e97bc8b3a5e77")
+        httpClient.addHeader("Authorization", "4cce74354b030121f655b43b46d170744a24a1a5")
         httpClient.addHeader("User-Agent", "request")
         val urlClient = "https://api.github.com/users"
 
@@ -70,9 +70,56 @@ class MainViewModel : ViewModel() {
         })
     }
 
+    fun getDataGitSearch(query: String, context: Context) {
+        val httpClient = AsyncHttpClient()
+        httpClient.addHeader("Authorization", "4cce74354b030121f655b43b46d170744a24a1a5")
+        httpClient.addHeader("User-Agent", "request")
+        var urlClient = "https://api.github.com/search/users?q=$query"
+
+        httpClient.get(urlClient, object : AsyncHttpResponseHandler() {
+            override fun onSuccess(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                responseBody: ByteArray?
+            ) {
+                val result = responseBody?.let { String(it) }
+                Log.d(MainActivity.TAG, result)
+                try {
+                    listUsersNonMutable.clear()
+                    val jsonArray = JSONObject(result)
+                    val item = jsonArray.getJSONArray("items")
+                    for (i in 0 until item.length()) {
+                        val jsonObject = item.getJSONObject(i)
+                        val username = jsonObject.getString("login")
+                        getDataGitDetail(username, context)
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
+                    e.printStackTrace()
+                }
+            }
+
+            override fun onFailure(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                responseBody: ByteArray?,
+                error: Throwable?
+            ) {
+                val errorMessage = when (statusCode) {
+                    401 -> "$statusCode : Bad Request"
+                    403 -> "$statusCode : Forbidden"
+                    404 -> "$statusCode : Not Found"
+                    else -> "$statusCode : ${error?.message}"
+                }
+                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
+            }
+
+        })
+    }
+
     private fun getDataGitDetail(usernameLogin: String, context: Context) {
         val httpClient = AsyncHttpClient()
-        httpClient.addHeader("Authorization", "f49f4bf36e789f74efb91cc10f7e97bc8b3a5e77")
+        httpClient.addHeader("Authorization", "4cce74354b030121f655b43b46d170744a24a1a5")
         httpClient.addHeader("User-Agent", "request")
         val urlClient = "https://api.github.com/users/$usernameLogin"
 
