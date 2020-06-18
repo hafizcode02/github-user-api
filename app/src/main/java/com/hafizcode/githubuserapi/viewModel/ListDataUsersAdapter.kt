@@ -3,6 +3,7 @@ package com.hafizcode.githubuserapi.viewModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -13,20 +14,10 @@ import kotlinx.android.synthetic.main.item_user.view.*
 class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<DataUsers>) :
     RecyclerView.Adapter<ListDataUsersAdapter.ListDataHolder>() {
 
-    private lateinit var onItemClickCallback: OnItemClickCallback
-
     fun setData(items: ArrayList<DataUsers>) {
         listDataUsersGithub.clear()
         listDataUsersGithub.addAll(items)
         notifyDataSetChanged()
-    }
-
-    interface OnItemClickCallback {
-        fun onItemClicked(dataUsers: DataUsers)
-    }
-
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
     }
 
     inner class ListDataHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -58,6 +49,9 @@ class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<DataUsers>
 
     override fun onBindViewHolder(holder: ListDataHolder, position: Int) {
         holder.bind(listDataUsersGithub[position])
+        holder.itemView.setOnClickListener {
+            Toast.makeText(holder.itemView.context, "Test", Toast.LENGTH_SHORT).show()
+        }
     }
 
 
