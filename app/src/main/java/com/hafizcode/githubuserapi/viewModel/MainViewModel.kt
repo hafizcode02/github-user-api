@@ -135,19 +135,14 @@ class MainViewModel : ViewModel() {
                 try {
                     val jsonObject = JSONObject(result)
                     val usersData = DataUsers()
-                    usersData.username = "@" + jsonObject.getString("login")
+                    usersData.username = jsonObject.getString("login")
                     usersData.name = jsonObject.getString("name")
                     usersData.avatar = jsonObject.getString("avatar_url")
                     usersData.company = jsonObject.getString("company")
                     usersData.location = jsonObject.getString("location")
-                    usersData.repository = context.getString(
-                        R.string._100_repository,
-                        jsonObject.getString("public_repos")
-                    )
-                    usersData.followers =
-                        context.getString(R.string.follower, jsonObject.getString("followers"))
-                    usersData.following =
-                        context.getString(R.string.followings, jsonObject.getString("following"))
+                    usersData.repository = jsonObject.getString("public_repos")
+                    usersData.followers = jsonObject.getString("followers")
+                    usersData.following = jsonObject.getString("following")
                     listUsersNonMutable.add(usersData)
                     listUsersMutable.postValue(listUsersNonMutable)
                 } catch (e: Exception) {

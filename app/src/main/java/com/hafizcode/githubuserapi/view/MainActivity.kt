@@ -1,8 +1,12 @@
 package com.hafizcode.githubuserapi.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -38,6 +42,20 @@ class MainActivity : AppCompatActivity() {
         viewConfig()
         runGetDataGit()
         configMainViewModel(listAdapter)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.change_language) {
+            val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            startActivity(mIntent)
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun viewConfig() {

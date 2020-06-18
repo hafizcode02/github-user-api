@@ -29,10 +29,13 @@ class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<DataUsers>
                     .into(avatar)
 
                 fullName.text = dataUsers.name
-                username.text = dataUsers.username
-                count_repository.text = dataUsers.repository
-                count_followers.text = dataUsers.followers
-                count_following.text = dataUsers.following
+                username.text = itemView.context.getString(R.string.hafizcode02, dataUsers.username)
+                count_repository.text =
+                    itemView.context.getString(R.string._100_repository, dataUsers.repository)
+                count_followers.text =
+                    itemView.context.getString(R.string.follower, dataUsers.followers)
+                count_following.text =
+                    itemView.context.getString(R.string.follower, dataUsers.following)
             }
         }
     }
