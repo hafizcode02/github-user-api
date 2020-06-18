@@ -2,6 +2,7 @@ package com.hafizcode.githubuserapi.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -45,12 +46,6 @@ class MainActivity : AppCompatActivity() {
 
         listAdapter.notifyDataSetChanged()
         recyclerView.adapter = listAdapter
-
-        listAdapter.setOnItemClickCallback(object : ListDataUsersAdapter.OnItemClickCallback {
-            override fun onItemClicked(dataUsers: DataUsers) {
-
-            }
-        })
     }
 
     private fun runGetDataGit() {
@@ -87,138 +82,17 @@ class MainActivity : AppCompatActivity() {
                     mainViewModel.getDataGitSearch(query, applicationContext)
                     showLoading(true)
                     configMainViewModel(listAdapter)
+                } else {
+                    return true
                 }
                 return true
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
+            override fun onQueryTextChange(newText: String): Boolean {
                 return false
             }
 
         })
     }
-
-//    private fun getDataGitSearch(query: String) {
-//
-//    }
-
-//    private fun getDataGit() {
-//        loadingProgress.visibility = View.VISIBLE
-//
-//        val httpClient = AsyncHttpClient()
-//        httpClient.addHeader("Authorization", "f49f4bf36e789f74efb91cc10f7e97bc8b3a5e77")
-//        httpClient.addHeader("User-Agent", "request")
-//        val urlClient = "https://api.github.com/users"
-//
-//        httpClient.get(urlClient, object : AsyncHttpResponseHandler() {
-//            override fun onSuccess(
-//                statusCode: Int,
-//                headers: Array<out Header>?,
-//                responseBody: ByteArray?
-//            ) {
-//                loadingProgress.visibility = View.INVISIBLE
-//                val result = responseBody?.let { String(it) }
-//                Log.d(TAG, result)
-//                try {
-//                    val jsonArray = JSONArray(result)
-//                    for (i in 0 until jsonArray.length()) {
-//                        val jsonObject = jsonArray.getJSONObject(i)
-//                        val usernameLogin = jsonObject.getString("login")
-//                        getDataGitDetail(usernameLogin)
-//                    }
-//                } catch (e: Exception) {
-//                    Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT).show()
-//                    e.printStackTrace()
-//                }
-//            }
-//
-//            override fun onFailure(
-//                statusCode: Int,
-//                headers: Array<out Header>?,
-//                responseBody: ByteArray?,
-//                error: Throwable?
-//            ) {
-//                loadingProgress.visibility = View.INVISIBLE
-//                val errorMessage = when (statusCode) {
-//                    401 -> "$statusCode : Bad Request"
-//                    403 -> "$statusCode : Forbidden"
-//                    404 -> "$statusCode : Not Found"
-//                    else -> "$statusCode : ${error?.message}"
-//                }
-//                Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_SHORT).show()
-//            }
-//
-//        })
-//    }
-
-//    private fun getDataGitDetail(usernameLogin: String) {
-//        loadingProgress.visibility = View.VISIBLE
-//
-//        val httpClient = AsyncHttpClient()
-//        httpClient.addHeader("Authorization", "f49f4bf36e789f74efb91cc10f7e97bc8b3a5e77")
-//        httpClient.addHeader("User-Agent", "request")
-//        val urlClient = "https://api.github.com/users/$usernameLogin"
-//
-//        httpClient.get(urlClient, object : AsyncHttpResponseHandler() {
-//            override fun onSuccess(
-//                statusCode: Int,
-//                headers: Array<out Header>?,
-//                responseBody: ByteArray?
-//            ) {
-//                loadingProgress.visibility = View.INVISIBLE
-//                val result = responseBody?.let { String(it) }
-//                Log.d(TAG, result)
-//
-//                try {
-//                    val jsonObject = JSONObject(result)
-//                    val username = "@" + jsonObject.getString("login")
-//                    val name = jsonObject.getString("name")
-//                    val avatar = jsonObject.getString("avatar_url")
-//                    val company = jsonObject.getString("company")
-//                    val location = jsonObject.getString("location")
-//                    val repository =
-//                        getString(R.string._100_repository, jsonObject.getString("public_repos"))
-//                    val followers =
-//                        getString(R.string.follower, jsonObject.getString(("followers")))
-//                    val following =
-//                        getString(R.string.followings, jsonObject.getString("following"))
-//                    listDataUser.add(
-//                        DataUsers(
-//                            username,
-//                            name,
-//                            avatar,
-//                            company,
-//                            location,
-//                            repository,
-//                            followers,
-//                            following
-//                        )
-//                    )
-//                    viewConfig()
-//                } catch (e: Exception) {
-//                    Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT).show()
-//                    e.printStackTrace()
-//                }
-//            }
-//
-//            override fun onFailure(
-//                statusCode: Int,
-//                headers: Array<out Header>?,
-//                responseBody: ByteArray?,
-//                error: Throwable?
-//            ) {
-//                loadingProgress.visibility = View.INVISIBLE
-//                val errorMessage = when (statusCode) {
-//                    401 -> "$statusCode : Bad Request"
-//                    403 -> "$statusCode : Forbidden"
-//                    404 -> "$statusCode : Not Found"
-//                    else -> "$statusCode : ${error?.message}"
-//                }
-//                Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_SHORT).show()
-//            }
-//
-//        })
-//
-//    }
 
 }
