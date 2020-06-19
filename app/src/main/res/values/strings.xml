@@ -3,7 +3,10 @@
     <string name="find_username">Find Username</string>
     <string name="hafiz_caniago">Hafiz Caniago</string>
     <string name="hafizcode02">\@%s</string>
-    <string name="_100_repository">%s Repository</string>
+    <string name="_100_repository">%s Repositories</string>
     <string name="followings">%s Following</string>
     <string name="follower">%s Followers</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -4,7 +4,9 @@
     <string name="find_username">Cari Username</string>
     <string name="hafiz_caniago">Hafiz Caniago</string>
     <string name="hafizcode02">\@%s</string>
-    <string name="_100_repository">%s Repository</string>
+    <string name="_100_repository">%s Repositori</string>
     <string name="followings">%s Mengikuti</string>
     <string name="follower">%s Pengikut</string>
+
+    <string name="hello_blank_fragment">Halo Fragment Kosong</string>
 </resources>

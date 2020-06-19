@@ -1,5 +1,6 @@
 package com.hafizcode.githubuserapi.viewModel
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.hafizcode.githubuserapi.R
 import com.hafizcode.githubuserapi.model.DataUsers
+import com.hafizcode.githubuserapi.view.DetailActivity
 import kotlinx.android.synthetic.main.item_user.view.*
 
 class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<DataUsers>) :
@@ -53,7 +55,8 @@ class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<DataUsers>
     override fun onBindViewHolder(holder: ListDataHolder, position: Int) {
         holder.bind(listDataUsersGithub[position])
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Test", Toast.LENGTH_SHORT).show()
+            val mIntent = Intent(it.context, DetailActivity::class.java)
+            it.context.startActivity(mIntent)
         }
     }
 
