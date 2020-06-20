@@ -7,6 +7,10 @@ import kotlinx.android.parcel.Parcelize
 data class DataFollowers(
     var username: String? = "",
     var name: String? = "",
-    var address: String? = "",
-    var photo: String? = ""
+    var avatar: String? = "",
+    var company: String? = "",
+    var location: String? = "",
+    var repository: String? = "",
+    var followers: String? = "",
+    var following: String? = ""
 ) : Parcelable

@@ -54,8 +54,21 @@ class ListDataUsersAdapter(private val listDataUsersGithub: ArrayList<DataUsers>
 
     override fun onBindViewHolder(holder: ListDataHolder, position: Int) {
         holder.bind(listDataUsersGithub[position])
+
+        val data = listDataUsersGithub[position]
         holder.itemView.setOnClickListener {
+            val dataUserIntent = DataUsers(
+                data.username,
+                data.name,
+                data.avatar,
+                data.company,
+                data.location,
+                data.repository,
+                data.followers,
+                data.following
+            )
             val mIntent = Intent(it.context, DetailActivity::class.java)
+            mIntent.putExtra(DetailActivity.EXTRA_DETAIL, dataUserIntent)
             it.context.startActivity(mIntent)
         }
     }

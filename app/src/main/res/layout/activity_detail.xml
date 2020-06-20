@@ -11,6 +11,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +46,7 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:id="@+id/fullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
@@ -54,6 +57,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -117,6 +121,7 @@
                             android:id="@+id/following"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:text="@string/kosong"
                             android:textColor="@android:color/black"
@@ -125,7 +130,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/followings"
+                            android:text="@string/follwing"
                             android:textSize="14sp" />
 
                         <ImageView
@@ -142,6 +147,7 @@
                             android:id="@+id/followers"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
                             android:gravity="center"
                             android:text="@string/kosong"
                             android:textColor="@android:color/black"
@@ -150,7 +156,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/follower"
+                            android:text="@string/follwer"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -164,13 +170,14 @@
                             android:id="@+id/repositories"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
                             android:text="@string/count"
                             android:textColor="@android:color/black" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/_100_repository" />
+                            android:text="@string/repo" />
                     </LinearLayout>
 
                 </LinearLayout>

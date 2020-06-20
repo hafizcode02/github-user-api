@@ -14,4 +14,7 @@
     <string name="kosong">NULL</string>
     <string name="separator">Separator</string>
     <string name="count">Count</string>
+    <string name="follwing">Followers</string>
+    <string name="follwer">Following</string>
+    <string name="repo">Repositories</string>
 </resources>
