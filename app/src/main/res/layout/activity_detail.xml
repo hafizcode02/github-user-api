@@ -10,7 +10,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -21,14 +25,15 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="90dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="15dp"
                 android:background="@android:color/white"
-                app:cardCornerRadius="8dp"
+                app:cardCornerRadius="10dp"
                 app:cardElevation="0dp">
 
                 <LinearLayout
@@ -66,7 +71,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginEnd="10dp"
-                            android:contentDescription="Work in"
+                            android:contentDescription="@string/work_in"
                             android:src="@drawable/ic_location_city_black_24dp"
                             android:tint="@android:color/black" />
 
@@ -75,7 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Work in"
+                            android:text="@string/work_in"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -89,7 +94,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginEnd="10dp"
-                            android:contentDescription="Location"
+                            android:contentDescription="@string/location"
                             android:src="@drawable/ic_location_on_black_24dp"
                             android:tint="@android:color/black" />
 
@@ -98,7 +103,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Location"
+                            android:text="@string/location"
                             android:textSize="14sp" />
                     </LinearLayout>
 
@@ -113,7 +118,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="NULL"
+                            android:text="@string/kosong"
                             android:textColor="@android:color/black"
                             android:textSize="14sp" />
 
@@ -129,7 +134,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
-                            android:contentDescription="Separator"
+                            android:contentDescription="@string/separator"
                             android:tint="@android:color/black"
                             app:srcCompat="@android:drawable/presence_invisible" />
 
@@ -138,7 +143,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="NULL"
+                            android:text="@string/kosong"
                             android:textColor="@android:color/black"
                             android:textSize="14sp" />
 
@@ -159,7 +164,7 @@
                             android:id="@+id/repositories"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Count"
+                            android:text="@string/count"
                             android:textColor="@android:color/black" />
 
                         <TextView
@@ -180,7 +185,24 @@
                 app:civ_border_color="@android:color/white"
                 app:civ_border_width="1dp" />
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardview_container"
+                android:background="@color/colorPrimary"
+                android:minHeight="?actionBarSize"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="2dp"
+                app:tabMode="fixed"
+                app:tabRippleColor="@null"
+                app:tabTextColor="@android:color/white" />
 
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tabs" />
         </RelativeLayout>
     </ScrollView>
 

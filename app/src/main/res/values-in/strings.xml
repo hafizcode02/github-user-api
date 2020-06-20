@@ -9,4 +9,9 @@
     <string name="follower">%s Pengikut</string>
 
     <string name="hello_blank_fragment">Halo Fragment Kosong</string>
+    <string name="work_in">Work in</string>
+    <string name="location">Location</string>
+    <string name="kosong">NULL</string>
+    <string name="separator">Separator</string>
+    <string name="count">Count</string>
 </resources>
