@@ -26,6 +26,7 @@ class FragmentFollowing : Fragment() {
         const val EXTRA_DETAIL = "extra_detail"
     }
 
+    private var bool: Boolean = false
     private var listData: ArrayList<DataFollowing> = ArrayList()
     private lateinit var adapter: ListDataFollowingAdapter
     private lateinit var followingViewModel: FollowingViewModel
@@ -40,6 +41,7 @@ class FragmentFollowing : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         adapter = ListDataFollowingAdapter(listData)
         followingViewModel = ViewModelProvider(
             this, ViewModelProvider.NewInstanceFactory()
@@ -48,7 +50,10 @@ class FragmentFollowing : Fragment() {
         val dataUser = activity!!.intent.getParcelableExtra(EXTRA_DETAIL) as DataUsers
         config()
 
-        followingViewModel.getDataGit(activity!!.applicationContext, dataUser.username.toString())
+        followingViewModel.getDataGit(
+            activity!!.applicationContext,
+            dataUser.username.toString()
+        )
         showLoading(true)
 
         followingViewModel.getListFollowing().observe(activity!!, Observer { listFollowing ->
@@ -71,7 +76,6 @@ class FragmentFollowing : Fragment() {
         } else {
             progressbarFollowing.visibility = View.INVISIBLE
         }
-
     }
 
 

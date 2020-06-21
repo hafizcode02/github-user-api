@@ -14,8 +14,8 @@
     <string name="kosong">NULL</string>
     <string name="separator">Separator</string>
     <string name="count">Count</string>
-    <string name="follwing">Pengikut</string>
-    <string name="follwer">Mengikuti</string>
+    <string name="follwing">Mengikuti</string>
+    <string name="follwer">Pengikut</string>
     <string name="repo">Repositori</string>
 
 </resources>

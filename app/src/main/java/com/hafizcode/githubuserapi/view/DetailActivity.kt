@@ -3,7 +3,6 @@ package com.hafizcode.githubuserapi.view
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.hafizcode.githubuserapi.R
@@ -23,10 +22,8 @@ class DetailActivity : AppCompatActivity() {
 
         val orientation = resources.configuration.orientation
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(applicationContext, "landscape", Toast.LENGTH_SHORT).show()
             viewpager.layoutParams.height = resources.getDimension(R.dimen.height).toInt()
         } else {
-            Toast.makeText(applicationContext, "portrait", Toast.LENGTH_SHORT).show()
             viewpager.layoutParams.height = resources.getDimension(R.dimen.height1).toInt()
         }
 

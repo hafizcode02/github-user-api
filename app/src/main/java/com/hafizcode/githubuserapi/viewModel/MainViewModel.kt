@@ -1,7 +1,6 @@
 package com.hafizcode.githubuserapi.viewModel
 
 import android.content.Context
-import com.hafizcode.githubuserapi.R
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData

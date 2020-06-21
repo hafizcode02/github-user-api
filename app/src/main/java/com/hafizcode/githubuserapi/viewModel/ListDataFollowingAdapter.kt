@@ -19,7 +19,7 @@ class ListDataFollowingAdapter(private val listDataFollowing: ArrayList<DataFoll
         notifyDataSetChanged()
     }
 
-    class ListDataHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ListDataHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(dataFollowing: DataFollowing) {
             with(itemView) {
                 Glide.with(itemView.context)
